@@ -1,6 +1,8 @@
 <h1><%= @list.name %></h1>
 <% @bookmarks.each do |bookmark| %>
   <%= bookmark.comment %><br>
+  <%# <%=@affiche = "https://tmdb.lewagon.com/movie/top_rated#{@movies['poster_path']}"%>
+  <%# <%=@affiche%>
 <% end %>
 <%= link_to "Back to all lists" , lists_path %> <br>
 <%= link_to 'delete', list_bookmark_path(@list),
