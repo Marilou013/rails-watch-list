@@ -1,8 +1,18 @@
-<h1>Lists</h1>
-  <ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>All Lists</h1>
+    <p>See all your categories</p>
+  </div>
+</div>
+<div class="container">
+  <div class="grid">
     <% @lists.each do |list| %>
-      <li>
-        <%= link_to list.name, list_path(list) %>
-          </li>
+      <%= link_to list_path(list) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <li><%= list.name %></li>
+        </div>
+      <% end %>
     <% end %>
-  </ul>
+    <%= link_to "Add list", :new_list, class: "btn btn-ghost btn-center" %>
+  </div>
+</div>
