@@ -1,11 +1,63 @@
-  <h1><%= @list.name %></h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <i class="fa-solid fa-circle-play"></i>
+  <div class="container">
+    <a class="navbar-brand" href="#">Watch List</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Movies</a>
+        </li>
+        <li class="nav-item">
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Popular
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Thriller</a>
+            <a class="dropdown-item" href="#">Horror</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="banner" style=" ">
+  <div class="container">
+ <h1><%= @list.name %></h1>
+ <p>Your movies</p>
+  </div>
+</div>
+
   <% @bookmarks.each do |bookmark| %>
     <%= bookmark.comment %><br>
-  <%= image_tag("#{bookmark.movie.poster_url}", alt: "movie poster", class: "w-25") %><br>
-  <%= link_to 'Delete', bookmark_path(bookmark),
+  <%= image_tag("#{bookmark.movie.poster_url}", alt: "movie poster", class: "w-25") %>
+
+<div class="container">
+  <div class="btn btn-ghost btn-center">
+    <%= link_to 'Delete', bookmark_path(bookmark),
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <% end %><br>
-  <%= link_to "Add bookmark" , new_list_bookmark_path(@list) %><br>
-  <%= link_to "Back to all lists" , root_path %> <br>
-  <%= link_to 'Delete list', list_path,
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <% end %><br>
+  </div>
+
+  <div class="btn btn-ghost btn-center">
+    <%= link_to "Add a movie" , new_list_bookmark_path(@list) %>
+  </div>
+
+  <div class="btn btn-ghost btn-center">
+    <%= link_to "Back to all lists" , root_path %>
+  </div>
+
+  <div class="btn btn-ghost btn-center">
+    <%= link_to 'Delete list', list_path,
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </div>
+</div>
