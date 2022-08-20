@@ -37,27 +37,32 @@
   </div>
 </div>
 
-  <% @bookmarks.each do |bookmark| %>
-    <%= bookmark.comment %><br>
-  <%= image_tag("#{bookmark.movie.poster_url}", alt: "movie poster", class: "w-25") %>
+
 
 <div class="container">
-  <div class="btn btn-ghost btn-center">
-    <%= link_to 'Delete', bookmark_path(bookmark),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    <% end %><br>
-  </div>
+    <% @bookmarks.each do |bookmark| %>
+  <div class="card-film">
+      <div class="img-film">
+        <%= image_tag("#{bookmark.movie.poster_url}", alt: "movie poster") %>
+      </div>
 
-  <div class="btn btn-ghost btn-center">
-    <%= link_to "Add a movie" , new_list_bookmark_path(@list) %>
-  </div>
+      <div class="comment-film">
+        <p><%= bookmark.comment %></p><br>
+      </div>
 
-  <div class="btn btn-ghost btn-center">
-    <%= link_to "Back to all lists" , root_path %>
+      <%= link_to 'Delete', bookmark_path(bookmark),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %><br>
+    <% end %>
   </div>
+</div>
 
-  <div class="btn btn-ghost btn-center">
-    <%= link_to 'Delete list', list_path,
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  </div>
+
+
+
+
+<div class="container">
+<%= link_to "Add a movie" , new_list_bookmark_path(@list) %><br>
+<%= link_to "Back to all lists" , root_path %><br>
+<%= link_to 'Delete list', list_path,
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 </div>
