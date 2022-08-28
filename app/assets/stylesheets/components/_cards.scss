@@ -25,12 +25,14 @@
   grid-gap: 25px;
 }
 
-.card-film img {
-  height: 190px;
-}
 
 .card-film {
- border: solid red;
- display: flex;
+  border: solid 2px red;
 
 }
+
+.img-film {
+  width: 120px;
+  height: 160px;
+}
+
