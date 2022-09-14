@@ -25,14 +25,31 @@
   grid-gap: 25px;
 }
 
+.film-container {
+  width: 100%;
+  height: auto;
+  background-color: whitesmoke;
+}
 
-.card-film {
-  border: solid 2px red;
-
+.card-content {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .img-film {
   width: 120px;
-  height: 160px;
+  height: auto;
+  display: flex;
 }
 
+.comment-film {
+  display: flex;
+  margin: 20px;
+}
+
+.delete {
+  margin: 20px;
+}

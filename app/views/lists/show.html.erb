@@ -38,18 +38,22 @@
 
 
 
-<div class="container">
+<div class="film-container">
     <% @bookmarks.each do |bookmark| %>
-  <div class="card-film">
-        <%= image_tag("#{bookmark.movie.poster_url}", alt: "movie poster", class: "img-film") %>
+  <div class="card-content">
+    <div class="card-film">
+      <%= image_tag("#{bookmark.movie.poster_url}", alt: "movie poster", class: "img-film") %>
+    </div>
 
-      <div class="comment-film">
-        <p>Comment : <em>" <%= bookmark.comment %> "</em></p><br>
-      </div>
+    <div class="comment-film">
+      <p>Comment : <em>" <%= bookmark.comment %> "</em></p><br>
+    </div>
 
-      <%= link_to 'Delete', bookmark_path(bookmark),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %><br>
+    <div class="delete">
+      <%= link_to bookmark_path(bookmark),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <% end %>
+    </div>
   </div>
 </div>
 
